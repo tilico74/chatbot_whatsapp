@@ -23,6 +23,12 @@ def verify():
     token = request.args.get("hub.verify_token")
     challenge = request.args.get("hub.challenge")
 
+    print("🔍 Recebido:")
+    print(f"mode: {mode}")
+    print(f"token: {token}")
+    print(f"challenge: {challenge}")
+    print(f"esperado VERIFY_TOKEN: {VERIFY_TOKEN}")
+
     if mode == "subscribe" and token == VERIFY_TOKEN:
         print("✅ Webhook verificado com sucesso!")
         return challenge, 200
