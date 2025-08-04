@@ -34,7 +34,7 @@ def verify():
         return challenge, 200
     else:
         print("❌ Falha na verificação do webhook")
-        return "Erro de verificação", 403
+        return f"Erro de verificação: {mode} , {token}, {challenge}, {VERIFY_TOKEN}", 403
 
 # Rota POST /webhook → usada para receber mensagens
 @app.route("/webhook", methods=["POST"])
